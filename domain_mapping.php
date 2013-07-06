@@ -716,6 +716,10 @@ function redirect_to_mapped_domain() {
 	// don't redirect theme customizer (WP 3.4)
 	if ( isset( $_POST['customize'] ) && isset( $_POST['theme'] ) && $_POST['customize'] == 'on' )
 		return;
+	
+	// don't redirect theme customizer (WP 3.5)
+	if ( isset( $_POST['wp_customize'] ) && $_POST['wp_customize'] == 'on' )
+		return;
 
 	if ( !isset( $_SERVER[ 'HTTPS' ] ) )
 		$_SERVER[ 'HTTPS' ] = 'off';
